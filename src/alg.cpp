@@ -10,9 +10,11 @@ bool checkPrime(uint64_t value) {
 }
 
 uint64_t nPrime(uint64_t n) {
-        uint64_t prime = 0;
-        for (uint64_t i = 2; i <= n; i++) {
-                if (checkPrime(i)) { prime++; }
+        uint64_t prime = 2;
+        for (uint64_t i = 1; i < n; i++) {
+                uint64_t j= prime + 1;
+                while (!checkPrime(j)) { j += 1; }
+                prime = j;
         }
         return prime;
 }
